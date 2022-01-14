@@ -1,6 +1,11 @@
 <div>
   <header>Punching</header>
   <div class="input_data">
+    <div>{{kosmas|async}}</div>
+    <div *ngIf="kosmasKatiAllo | async as myVariable">
+      {{myVariable.x}}
+    </div>
+    <div>{{kosmasKatiAllo|async|json}}</div>
     <!-- <div class="subtitle">Support Area {{ data | async | json }}</div> -->
     <div *ngIf="dx == 2">i am 2</div>
     <div *ngIf="data | async as forecast">
