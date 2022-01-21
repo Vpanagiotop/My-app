@@ -31,11 +31,7 @@
       </div>
     </label>
 
-    <select
-      class="input_select"
-      #myConcrete
-      (change)="params.concreteTypeList = myConcrete.value"
-    >
+    <select class="input_select" [(ngModel)]="params.concreteTypeList">
       <option *ngFor="let option of concreteTypeList" [value]="option">
         {{ option }}
       </option>
