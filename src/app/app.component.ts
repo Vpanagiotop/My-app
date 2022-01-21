@@ -1,5 +1,5 @@
 import { style } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 // import { KeyObject, VerifyKeyObjectInput } from 'crypto';
 import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
 
@@ -10,7 +10,8 @@ const DEFAULT_OPTION = '--- Select ---';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+  private readonly PANEL_OPEN_CLASS = 'open';
   public panels = ['active', 'active', 'active'];
   public list: any;
   public selected: any;
@@ -50,7 +51,20 @@ export class AppComponent implements OnInit {
     this.kosmas.next(await response3.json());
     console.log(this.kosmas);
   }
+  /**
+   * This function is like ngOnInit, but it runs AFTER the UI has been drawn
+   * for the first time, so that we know how much height the .panel-content has.
+   */
+  public ngAfterViewInit() {
+    document.querySelectorAll('.panel-v2').forEach(element => {
+      const panel = element as HTMLElement;
+      this.openPanel(panel);
+      this.enablePanelTransitionNextTick(panel);
+    });
+  }
   public shrinkContent(i: number) {
+    // Temporary fix because panel-v2 broke this implementation
+    i = i - 1;
     // alert('hello');
     let panel = document.getElementsByClassName('panel') as HTMLCollectionOf<HTMLElement>;
     let btn = document.getElementsByClassName('accordion') as HTMLCollectionOf<HTMLElement>;
@@ -74,7 +88,36 @@ export class AppComponent implements OnInit {
 
       btn[i].classList.toggle("active");
     }
+  }
+  public togglePanel(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const panel = target.nextSibling as HTMLElement;
 
+    if (panel.classList.contains(this.PANEL_OPEN_CLASS)) {
+      this.closePanel(panel);
+    } else {
+      this.openPanel(panel);
+    }
+  }
+  private openPanel(panel: HTMLElement) {
+    const content = panel.querySelector('.panel-content') as HTMLElement;
+    panel.classList.add(this.PANEL_OPEN_CLASS);
+    panel.style.height = content.clientHeight + 'px';
+  }
+  private closePanel(panel: HTMLElement) {
+    panel.classList.remove(this.PANEL_OPEN_CLASS);
+    panel.style.height = '';
+  }
+  /**
+   * We only want transition to be enabled AFTER the panel is first drawn,
+   * otherwise the user would see a transition during page load. To
+   * "schedule" a command to run as soon as possible but not right now, 
+   * we use `setTimeout`.
+   */
+  private enablePanelTransitionNextTick(panel: HTMLElement) {
+    setTimeout(() => {
+      panel.style.transition = 'all 0.5s';
+    });
   }
 };
 

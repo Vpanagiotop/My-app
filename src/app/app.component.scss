@@ -20,7 +20,7 @@
   overflow: hidden;
 }
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;
@@ -29,7 +29,8 @@
   font-family: inherit;
   margin: 0;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: rgb(72, 70, 88);
 }
 .dropdown-content {
@@ -37,7 +38,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .dropdown-content a {
   float: none;
@@ -71,83 +72,82 @@
 }
 .accordion:after {
   font-size: 20px;
-  content: '\002B';
+  content: "\002B";
   color: #777;
   font-weight: bold;
   float: right;
   transition: 1s;
 }
 .active:after {
-  content: '\2212';
+  content: "\2212";
   transition: 1s;
 }
 .panel {
-   width: 100%;
-    padding: 0px 0px 20px 0px;
-    margin: 0px 0px 20px 0px;
-    background-color: #f2f2f2;
+  width: 100%;
+  padding: 0px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
+  background-color: #f2f2f2;
 }
-.input_data{
-    padding: 10px;
-    background-color: rgba(240, 240, 240, 0.555);
-    width: 40%;
-    border-radius: 4px;
-    
+.input_data {
+  padding: 10px;
+  background-color: rgba(240, 240, 240, 0.555);
+  width: 40%;
+  border-radius: 4px;
 }
-.input_label{
-    display: block;
-    padding: 10px 0px 5px 10px;
-    margin: 0px 10px;
-    font-size: 19px;
-    font-weight: bold;
+.input_label {
+  display: block;
+  padding: 10px 0px 5px 10px;
+  margin: 0px 10px;
+  font-size: 19px;
+  font-weight: bold;
 }
-.input_select{
-    width : 90%;
-    padding: 6px 6px;
-    margin: auto;
-    margin-top: 5px;
-    display: list-item;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.input_select {
+  width: 90%;
+  padding: 6px 6px;
+  margin: auto;
+  margin-top: 5px;
+  display: list-item;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-.dbLx_selection{
-    display: inline-block;  
-    width: 42%;
-    padding: 6px 6px;
-    margin: 0% 2.5% 0% 5%;
-    border:1px solid #ccc;
-    border-radius: 4px;
+.dbLx_selection {
+  display: inline-block;
+  width: 42%;
+  padding: 6px 6px;
+  margin: 0% 2.5% 0% 5%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.dbLy_selection{
-    display: inline-block;
-    width: 42%;
-    padding: 6px 6px;
-    margin: 0% 0% 0% 3.5%;
-    border:1px solid #ccc;
-    border-radius: 4px;
+.dbLy_selection {
+  display: inline-block;
+  width: 42%;
+  padding: 6px 6px;
+  margin: 0% 0% 0% 3.5%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.info{
-    float: right;
-    position: relative;
-    font-size: 18px;
-    color: rgb(105, 104, 104);
-    margin: 0px 5px;
+.info {
+  float: right;
+  position: relative;
+  font-size: 18px;
+  color: rgb(105, 104, 104);
+  margin: 0px 5px;
 }
 .info .tooltip {
-    visibility: hidden;
-    width: 120px;
-    height: auto;
-    background-color:rgb(105, 104, 104);
-    color: white;
-    text-align: center;
-    font-size: 15px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    left:150%;
-    opacity: 0;
-    transition: opacity 0.3s;
+  visibility: hidden;
+  width: 120px;
+  height: auto;
+  background-color: rgb(105, 104, 104);
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  left: 150%;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 .info .tooltip::after {
   content: "";
@@ -157,8 +157,29 @@
   border-style: solid;
   border-color: transparent rgb(105, 104, 104) transparent transparent;
 }
-.info:hover .tooltip{
-    visibility: visible;
-    overflow:visible !important;
-    opacity: 1;
+.info:hover .tooltip {
+  visibility: visible;
+  overflow: visible !important;
+  opacity: 1;
+}
+.panel-v2 {
+  width: 100%;
+  margin: 0px 0px 20px 0px;
+  background-color: #f2f2f2;
+  overflow: hidden;
+  height: 0;
+
+  // Apply when .panel-v2 also has the .open class
+  &.open {
+    padding: 0px 0px 20px 0px;
+
+    // We need the overflow to be visible when the panel is
+    // open, otherwise the tooltip is hidden
+    overflow: visible;
+  }
+
+  // Apply only to children with .panel-content class
+  .panel-content {
+    height: auto;
+  }
 }

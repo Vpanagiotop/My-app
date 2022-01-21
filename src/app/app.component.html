@@ -20,51 +20,53 @@
 </div>
 
 <div class="input_data">
-  <button class="accordion" (click)="shrinkContent(0)">Materials</button>
-  <div class="panel">
-    <!-- Concrete -->
-    <label class="input_label"
-      >Concrete
-      <div class="info">
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <span class="tooltip">Test tooltip bars 1234567890123</span>
-      </div>
-    </label>
+  <button class="accordion" (click)="togglePanel($event)">Materials</button>
+  <div class="panel-v2">
+    <div class="panel-content">
+      <!-- Concrete -->
+      <label class="input_label"
+        >Concrete
+        <div class="info">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          <span class="tooltip">Test tooltip bars 1234567890123</span>
+        </div>
+      </label>
 
-    <select class="input_select" [(ngModel)]="params.concreteTypeList">
-      <option *ngFor="let option of concreteTypeList" [value]="option">
-        {{ option }}
-      </option>
-    </select>
-    <ng-container *ngIf="params.concreteTypeList == 'other'">
-      <input
+      <select class="input_select" [(ngModel)]="params.concreteTypeList">
+        <option *ngFor="let option of concreteTypeList" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <ng-container *ngIf="params.concreteTypeList == 'other'">
+        <input
+          class="input_select"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="fc"
+        />
+      </ng-container>
+      <!-- Stell -->
+      <label class="input_label">Steel</label>
+      <select
         class="input_select"
-        type="number"
-        step="any"
-        min="0"
-        placeholder="fc"
-      />
-    </ng-container>
-    <!-- Stell -->
-    <label class="input_label">Steel</label>
-    <select
-      class="input_select"
-      #mySteel
-      (change)="params.steelTypeList = mySteel.value"
-    >
-      <option *ngFor="let option of steelTypeList" [value]="option">
-        {{ option }}
-      </option>
-    </select>
-    <ng-container *ngIf="params.steelTypeList == 'other'">
-      <input
-        class="input_select"
-        type="number"
-        step="any"
-        min="0"
-        placeholder="fy"
-      />
-    </ng-container>
+        #mySteel
+        (change)="params.steelTypeList = mySteel.value"
+      >
+        <option *ngFor="let option of steelTypeList" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <ng-container *ngIf="params.steelTypeList == 'other'">
+        <input
+          class="input_select"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="fy"
+        />
+      </ng-container>
+    </div>
   </div>
   <!-- Support Area -->
   <div>
