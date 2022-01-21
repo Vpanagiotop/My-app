@@ -31,13 +31,12 @@
           <span class="tooltip">Test tooltip bars 1234567890123</span>
         </div>
       </label>
-
       <select class="input_select" [(ngModel)]="params.concreteTypeList">
         <option *ngFor="let option of concreteTypeList" [value]="option">
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.concreteTypeList == 'other'">
+      <ng-container *ngIf="params.concreteTypeList === 'other'">
         <input
           class="input_select"
           type="number"
@@ -57,7 +56,7 @@
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.steelTypeList == 'other'">
+      <ng-container *ngIf="params.steelTypeList === 'other'">
         <input
           class="input_select"
           type="number"
@@ -83,7 +82,7 @@
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.sectionType == 'Rectangular'">
+      <ng-container *ngIf="params.sectionType === 'Rectangular'">
         <label class="input_label">Section width</label>
         <input
           class="input_select"
@@ -101,7 +100,7 @@
           placeholder="cy"
         />
       </ng-container>
-      <ng-container *ngIf="params.sectionType == 'Circular'">
+      <ng-container *ngIf="params.sectionType === 'Circular'">
         <label class="input_label">Section Diameter</label>
         <input
           class="input_select"
@@ -122,7 +121,7 @@
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.position == 'Corner'">
+      <ng-container *ngIf="params.position === 'Corner'">
         <label class="input_label"
           >Distance from free edge to column face (x-axis)</label
         >
@@ -144,7 +143,7 @@
           placeholder="dy"
         />
       </ng-container>
-      <ng-container *ngIf="params.position == 'Edge'">
+      <ng-container *ngIf="params.position === 'Edge'">
         <label class="input_label">Axis</label>
         <select
           class="input_select"
@@ -155,7 +154,7 @@
             {{ option }}
           </option>
         </select>
-        <ng-container *ngIf="params.axis == 'X'">
+        <ng-container *ngIf="params.axis === 'X'">
           <label class="input_label">
             Distance from free edge to column face</label
           >
@@ -167,7 +166,7 @@
             placeholder="dx"
           />
         </ng-container>
-        <ng-container *ngIf="params.axis == 'Y'">
+        <ng-container *ngIf="params.axis === 'Y'">
           <label class="input_label"
             >Distance from free edge to column face</label
           >
@@ -194,7 +193,7 @@
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.elementType == 'Foot'">
+      <ng-container *ngIf="params.elementType === 'Foot'">
         <label class="input_label">Length</label>
         <input
           class="input_select"
@@ -213,7 +212,7 @@
         />
       </ng-container>
       <ng-container
-        *ngIf="params.elementType == 'Slab' || params.elementType == 'Foot'"
+        *ngIf="params.elementType === 'Slab' || params.elementType === 'Foot'"
       >
         <label class="input_label">Height</label>
         <input
@@ -268,7 +267,7 @@
           </option>
         </select>
         <ng-container
-          *ngIf="params.diameterOfReinforcingBars_xAxisList == 'other'"
+          *ngIf="params.diameterOfReinforcingBars_xAxisList === 'other'"
         >
           <input
             class="input_select"
@@ -279,7 +278,7 @@
           />
         </ng-container>
         <ng-container
-          *ngIf="params.diameterOfReinforcingBars_yAxisList == 'other'"
+          *ngIf="params.diameterOfReinforcingBars_yAxisList === 'other'"
         >
           <input
             class="input_select"

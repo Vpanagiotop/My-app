@@ -1,7 +1,6 @@
-import { style } from '@angular/animations';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 // import { KeyObject, VerifyKeyObjectInput } from 'crypto';
-import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 const DEFAULT_OPTION = '--- Select ---';
 
@@ -66,27 +65,27 @@ export class AppComponent implements OnInit, AfterViewInit {
     // Temporary fix because panel-v2 broke this implementation
     i = i - 1;
     // alert('hello');
-    let panel = document.getElementsByClassName('panel') as HTMLCollectionOf<HTMLElement>;
-    let btn = document.getElementsByClassName('accordion') as HTMLCollectionOf<HTMLElement>;
+    const panel = document.getElementsByClassName('panel') as HTMLCollectionOf<HTMLElement>;
+    const btn = document.getElementsByClassName('accordion') as HTMLCollectionOf<HTMLElement>;
 
     if (this.panels[i] == 'active') {
       this.panels[i] = 'null';
-      panel[i].style.transition = "all 0.5s ease-out"
-      panel[i].style.opacity = "0"
-      panel[i].style.maxHeight = "0";
-      panel[i].style.padding = "0px";
-      panel[i].style.overflow = "hidden";
-      btn[i].classList.remove("active");
+      panel[i].style.transition = 'all 0.5s ease-out'
+      panel[i].style.opacity = '0'
+      panel[i].style.maxHeight = '0';
+      panel[i].style.padding = '0px';
+      panel[i].style.overflow = 'hidden';
+      btn[i].classList.remove('active');
     }
     else {
       this.panels[i] = 'active';
-      panel[i].style.maxHeight = "none";
-      panel[i].style.transition = "all 0.5s ease-out"
-      panel[i].style.opacity = "1"
-      panel[i].style.padding = "0px 0px 20px 0px";
-      panel[i].style.overflow = "visible";
+      panel[i].style.maxHeight = 'none';
+      panel[i].style.transition = 'all 0.5s ease-out'
+      panel[i].style.opacity = '1'
+      panel[i].style.padding = '0px 0px 20px 0px';
+      panel[i].style.overflow = 'visible';
 
-      btn[i].classList.toggle("active");
+      btn[i].classList.toggle('active');
     }
   }
   public togglePanel(event: MouseEvent) {
