@@ -98,6 +98,9 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.openPanel(panel);
     }
   }
+  public sayHi() {
+    alert('hi');
+  }
   private openPanel(panel: HTMLElement) {
     const content = panel.querySelector('.panel-content') as HTMLElement;
     panel.classList.add(this.PANEL_OPEN_CLASS);
