@@ -1,63 +1,153 @@
-<div>
-  <header>Punching</header>
-  <div class="input_data">
-    <div>{{kosmas|async}}</div>
-    <div *ngIf="kosmasKatiAllo | async as myVariable">
-      {{myVariable.x}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="navbar">
+  <a href="#home"><i class="fa fa-fw fa-home"></i> Home </a>
+  <a href="#search"><i class="fa fa-search"></i> Search</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
     </div>
-    <div>{{kosmasKatiAllo|async|json}}</div>
-    <!-- <div class="subtitle">Support Area {{ data | async | json }}</div> -->
-    <div *ngIf="dx == 2">i am 2</div>
-    <div *ngIf="data | async as forecast">
-      <span>{{forecast[0].date}}</span>
-      <div *ngFor="let item of forecast">
-        <div>{{item.summary}}: {{item.date}}</div>
-      </div>
-    </div>
-    <button (click)="sayHello()">say hello</button>
-    <form action="/action_page.php">
-
-      <label for="SectionType">Section Type</label>
-      <!-- <select (change)="kaneKati()" id="SectionType" name="SectionType"> -->
-      <select id="SectionType" name="SectionType">
-        <option value="Rectangular">Rectangular</option>
-        <option value="Circular">Circular</option>
-      </select>
-
-      <label for="Position">Position</label>
-      <select id="Position" name="Position">
-        <option value="Inner">Inner</option>
-        <option value="Edge">Edge</option>
-        <option value="Corner">Corner</option>
-      </select>
-
-      <ng-container *ngIf="dx == 2">
-        <label for="cx">Section width</label>
-        <input type="number" id="cx" name="cx" placeholder="cx">
-      </ng-container>
-
-
-      <label for="cy">Section height</label>
-      <input type="number" id="cy" name="cy" placeholder="cy">
-
-    </form>
   </div>
-  <div class="input_data">
-    <h3>Slab</h3>
-    <form action="/action_page.php">
-
-      <label for="Type">Type</label>
-      <select id="Type" name="Type">
-        <option value="Slab">Slab</option>
-        <option value="Foot">Foot</option>
-      </select>
-
-      <label for="height">height</label>
-      <input type="number" id="height" name="height" placeholder="hs">
-
-      <label for="cover">Nominal cover</label>
-      <input type="number" id="cover" name="cover" placeholder="cnom">
-
-    </form>
+  <div class="topnav-right">
+    <a href="#search">Search</a>
+    <a href="#about">About</a>
   </div>
 </div>
+
+<div class="input_data">
+
+  <button class="accordion" (click)="shrinkContent(0)">Materials</button>
+  <div class="panel">
+    <!-- Concrete -->
+    <label class="input_label">Concrete
+      <div class="info">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <span class="tooltip">Test tooltip bars 1234567890123</span>
+      </div>
+    </label>
+
+    <select class='input_select' #myConcrete (change)='getSelection("concreteTypeList", myConcrete.value)'>
+      <option *ngFor='let option of concreteTypeList' [value]="option">{{option}}</option>
+    </select>
+    <ng-container *ngIf="dict['concreteTypeList'] == 'other'">
+      <input class="input_select" type="number" step="any" min="0" placeholder="fc">
+    </ng-container>
+    <!-- Stell -->
+    <label class="input_label">Steel</label>
+    <select class='input_select' #mySteel (change)='getSelection("steelTypeList", mySteel.value)'>
+      <option *ngFor='let option of steelTypeList' [value]="option">{{option}}</option>
+    </select>
+    <ng-container *ngIf="dict['steelTypeList'] == 'other'">
+      <input class="input_select" type="number" step="any" min="0" placeholder="fy">
+    </ng-container>
+  </div>
+  <!-- Support Area -->
+  <div>
+    <button class="accordion" (click)="shrinkContent(1)">Support Area</button>
+    <div class="panel">
+      <!-- SECTION TYPE -->
+      <label class="input_label">Section Type</label>
+      <select class='input_select' #mySection (change)='getSelection("sectionType", mySection.value)'>
+        <option *ngFor='let option of sectionTypeList' [value]="option">{{option}}</option>
+      </select>
+      <ng-container *ngIf="dict['sectionType'] == 'Rectangular'">
+        <label class="input_label">Section width</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="cx">
+        <label class="input_label">Section height</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="cy">
+      </ng-container>
+      <ng-container *ngIf="dict['sectionType'] == 'Circular'">
+        <label class="input_label">Section Diameter</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="D">
+      </ng-container>
+      <!-- POSITION -->
+      <label class="input_label">Position</label>
+      <select class='input_select' #myPosition (change)='getSelection("position", myPosition.value)'>
+        <option *ngFor='let option of positionList' [value]="option">{{option}}</option>
+      </select>
+      <ng-container *ngIf="dict['position'] == 'Corner'">
+        <label class="input_label">Distance from free edge to column face (x-axis)</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="dx">
+        <label class="input_label">Distance from free edge to column face (y-axis)</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="dy">
+      </ng-container>
+      <ng-container *ngIf="dict['position'] == 'Edge'">
+        <label class="input_label">Axis</label>
+        <select class='input_select' #myAxis (change)='getSelection("axis", myAxis.value)'>
+          <option *ngFor='let option of axisList' [value]="option">{{option}}</option>
+        </select>
+        <ng-container *ngIf="dict['axis'] == 'X'">
+          <label class="input_label"> Distance from free edge to column face</label>
+          <input class="input_select" type="number" step="any" min="0" placeholder="dx">
+        </ng-container>
+        <ng-container *ngIf="dict['axis'] == 'Y'">
+          <label class="input_label">Distance from free edge to column face</label>
+          <input class="input_select" type="number" step="any" min="0" placeholder="dy">
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Slab element-->
+    <button class="accordion" (click)="shrinkContent(2)">Slab
+      Element</button>
+    <div class="panel">
+      <label class="input_label">Elemtn Types</label>
+      <select class='input_select' #mySlab (change)='getSelection("elementType", mySlab.value)'>
+        <option *ngFor='let option of elementTypeList' [value]="option">{{option}}</option>
+      </select>
+      <ng-container *ngIf="dict['elementType'] == 'Foot'">
+        <label class=input_label>Length</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="bx">
+        <label class=input_label>Width</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="by">
+      </ng-container>
+      <ng-container *ngIf="dict['elementType'] == 'Slab' || dict['elementType'] == 'Foot'">
+        <label class=input_label>Height</label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="hf">
+        <label class=input_label>Nominal Cover
+          <div class="info">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            <span class="tooltip">The distance between the exposed concrete surface to nearest reinforcement bar</span>
+          </div>
+        </label>
+        <input class="input_select" type="number" step="any" min="0" placeholder="cnom">
+        <label class=input_label>Diameter of reinforcing bars</label>
+        <select class='dbLx_selection' #mybar_x
+          (change)='getSelection("diameterOfReinforcingBars_xAxisList", mybar_x.value)'>
+          <option class='dbLx_selection' *ngFor='let option of diameterOfReinforcingBars_xAxisList' [value]="option">
+            {{option}}</option>
+        </select>
+        <select class='dbLy_selection' #mybar_y
+          (change)='getSelection("diameterOfReinforcingBars_yAxisList", mybar_y.value)'>
+          <option class='dbLy_selection' *ngFor='let option of diameterOfReinforcingBars_yAxisList' [value]="option">
+            {{option}}</option>
+        </select>
+        <ng-container *ngIf="dict['diameterOfReinforcingBars_xAxisList'] == 'other'">
+          <input class="input_select" type="number" step="any" min="0" placeholder="dbLx">
+        </ng-container>
+        <ng-container *ngIf="dict['diameterOfReinforcingBars_yAxisList'] == 'other'">
+          <input class="input_select" type="number" step="any" min="0" placeholder="dbLy">
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div>{{kosmas|async}}</div>
+        <div *ngIf="kosmasKatiAllo | async as myVariable">
+          {{myVariable.x}}
+        </div>
+        <div>{{kosmasKatiAllo|async|json}}</div> -->
+<!-- <div class="subtitle">Support Area {{ data | async | json }}</div> -->
+<!-- <div *ngIf="dx == 2">i am 2</div>
+          <div *ngIf="data | async as forecast">
+            <span>{{forecast[0].date}}</span>
+            <div *ngFor="let item of forecast">
+              <div>{{item.summary}}: {{item.date}}</div>
+            </div>
+          </div>
+          <button (click)="sayHello()">content: '\2807'</button> -->
+<!-- <input class=doubleInput placeholder="dbLx">
+                <input class="doubleInput" placeholder="dbLy"> -->
