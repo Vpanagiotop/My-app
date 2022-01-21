@@ -8,12 +8,11 @@ import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
 export class AppComponent implements OnInit {
   public panels: string[] = ['active', 'active', 'active'];
   public list: any;
   public selected: any;
-  public dict = {} as any;
+  public params = {} as IParamters;
   public concreteTypeList: string[] = ['--- Select ---', 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
   public steelTypeList: string[] = ['--- Select ---', 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
   public sectionTypeList: string[] = ['--- Select ---', 'Rectangular', 'Circular'];
@@ -74,10 +73,15 @@ export class AppComponent implements OnInit {
     }
 
   }
-  public getSelection(key: string, value: any) {
-    this.dict[key] = value;
-  }
 };
 
-
-
+interface IParamters {
+  concreteTypeList: string;
+  steelTypeList: string;
+  sectionType: string;
+  position: string;
+  axis: string;
+  elementType: string;
+  diameterOfReinforcingBars_xAxisList: string;
+  diameterOfReinforcingBars_yAxisList: string;
+}
