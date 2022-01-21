@@ -9,21 +9,21 @@ import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public panels: string[] = ['active', 'active', 'active'];
+  public panels = ['active', 'active', 'active'];
   public list: any;
   public selected: any;
   public params = {} as IParamters;
-  public concreteTypeList: string[] = ['--- Select ---', 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
-  public steelTypeList: string[] = ['--- Select ---', 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
-  public sectionTypeList: string[] = ['--- Select ---', 'Rectangular', 'Circular'];
-  public positionList: string[] = ['--- Select ---', 'Inner', 'Edge', 'Corner'];
-  public axisList: string[] = ['--- Select ---', 'X', 'Y'];
-  public elementTypeList: string[] = ['--- Select ---', 'Slab', 'Foot'];
-  public diameterOfReinforcingBars_xAxisList: string[] = ['-- dbLx ---',
+  public concreteTypeList = ['--- Select ---', 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
+  public steelTypeList = ['--- Select ---', 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
+  public sectionTypeList = ['--- Select ---', 'Rectangular', 'Circular'];
+  public positionList = ['--- Select ---', 'Inner', 'Edge', 'Corner'];
+  public axisList = ['--- Select ---', 'X', 'Y'];
+  public elementTypeList = ['--- Select ---', 'Slab', 'Foot'];
+  public diameterOfReinforcingBars_xAxisList = ['-- dbLx ---',
     'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other']
-  public diameterOfReinforcingBars_yAxisList: string[] = ['-- dbLy --',
+  public diameterOfReinforcingBars_yAxisList = ['-- dbLy --',
     'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other'];
-  public reinforcementRatioTypeList: string[] = ['--- Select ---',
+  public reinforcementRatioTypeList = ['--- Select ---',
     'Count Reinforcement Ratio',
     'Set Reinforcement Ratio',
     'Minimum Reinforcement Ratio'];
