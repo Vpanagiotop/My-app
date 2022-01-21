@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 // import { KeyObject, VerifyKeyObjectInput } from 'crypto';
 import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
 
+const DEFAULT_OPTION = '--- Select ---';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,21 +15,20 @@ export class AppComponent implements OnInit {
   public list: any;
   public selected: any;
   public params = {} as IParamters;
-  public concreteTypeList = ['--- Select ---', 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
-  public steelTypeList = ['--- Select ---', 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
-  public sectionTypeList = ['--- Select ---', 'Rectangular', 'Circular'];
-  public positionList = ['--- Select ---', 'Inner', 'Edge', 'Corner'];
-  public axisList = ['--- Select ---', 'X', 'Y'];
-  public elementTypeList = ['--- Select ---', 'Slab', 'Foot'];
+  public concreteTypeList = [DEFAULT_OPTION, 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
+  public steelTypeList = [DEFAULT_OPTION, 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
+  public sectionTypeList = [DEFAULT_OPTION, 'Rectangular', 'Circular'];
+  public positionList = [DEFAULT_OPTION, 'Inner', 'Edge', 'Corner'];
+  public axisList = [DEFAULT_OPTION, 'X', 'Y'];
+  public elementTypeList = [DEFAULT_OPTION, 'Slab', 'Foot'];
   public diameterOfReinforcingBars_xAxisList = ['-- dbLx ---',
     'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other']
   public diameterOfReinforcingBars_yAxisList = ['-- dbLy --',
     'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other'];
-  public reinforcementRatioTypeList = ['--- Select ---',
+  public reinforcementRatioTypeList = [DEFAULT_OPTION,
     'Count Reinforcement Ratio',
     'Set Reinforcement Ratio',
     'Minimum Reinforcement Ratio'];
-
   public dx = 2;
   public btnVal: string = '-';
   public data = new BehaviorSubject([] as any[]);
