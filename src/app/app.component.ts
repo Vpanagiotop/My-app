@@ -102,10 +102,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     const content = panel.querySelector('.panel-content') as HTMLElement;
     panel.classList.add(this.PANEL_OPEN_CLASS);
     panel.style.height = content.clientHeight + 'px';
+    panel.previousElementSibling?.classList.add('active');
   }
   private closePanel(panel: HTMLElement) {
     panel.classList.remove(this.PANEL_OPEN_CLASS);
     panel.style.height = '';
+    panel.previousElementSibling?.classList.remove('active');
   }
   /**
    * We only want transition to be enabled AFTER the panel is first drawn,
