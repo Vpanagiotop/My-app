@@ -20,295 +20,274 @@
 </div>
 
 <div class="input_data">
-  <button class="accordion active" (click)="togglePanel($event)">
-    Materials
-  </button>
-  <div class="panel-v2">
-    <div class="panel-content">
-      <!-- Concrete -->
+  <!-- Materials -->
+  <app-panel title="Materials">
+    <!-- Concrete -->
+    <label class="input_label"
+      >Concrete
+      <div class="info">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <span class="tooltip">Test tooltip bars 1234567890123</span>
+      </div>
+    </label>
+    <select
+      class="input_select"
+      (ngModelChange)="sayHi()"
+      [(ngModel)]="params.concreteTypeList"
+    >
+      <option *ngFor="let option of concreteTypeList" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+    <ng-container *ngIf="params.concreteTypeList === 'other'">
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="fc"
+      />
+    </ng-container>
+    <!-- Stell -->
+    <label class="input_label">Steel</label>
+    <select
+      class="input_select"
+      #mySteel
+      (change)="params.steelTypeList = mySteel.value"
+    >
+      <option *ngFor="let option of steelTypeList" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+    <ng-container *ngIf="params.steelTypeList === 'other'">
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="fy"
+      />
+    </ng-container>
+  </app-panel>
+  <!-- Support Area -->
+  <app-panel title="Support Area">
+    <label class="input_label">Section Type</label>
+    <select
+      class="input_select"
+      #mySection
+      (change)="params.sectionType = mySection.value"
+    >
+      <option *ngFor="let option of sectionTypeList" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+    <ng-container *ngIf="params.sectionType === 'Rectangular'">
+      <label class="input_label">Section width</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="cx"
+      />
+      <label class="input_label">Section height</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="cy"
+      />
+    </ng-container>
+    <ng-container *ngIf="params.sectionType === 'Circular'">
+      <label class="input_label">Section Diameter</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="D"
+      />
+    </ng-container>
+    <!-- POSITION -->
+    <label class="input_label">Position</label>
+    <select
+      class="input_select"
+      #myPosition
+      (change)="params.position = myPosition.value"
+    >
+      <option *ngFor="let option of positionList" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+    <ng-container *ngIf="params.position === 'Corner'">
       <label class="input_label"
-        >Concrete
+        >Distance from free edge to column face (x-axis)</label
+      >
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="dx"
+      />
+      <label class="input_label"
+        >Distance from free edge to column face (y-axis)</label
+      >
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="dy"
+      />
+    </ng-container>
+    <ng-container *ngIf="params.position === 'Edge'">
+      <label class="input_label">Axis</label>
+      <select
+        class="input_select"
+        #myAxis
+        (change)="params.axis = myAxis.value"
+      >
+        <option *ngFor="let option of axisList" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <ng-container *ngIf="params.axis === 'X'">
+        <label class="input_label">
+          Distance from free edge to column face</label
+        >
+        <input
+          class="input_select"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="dx"
+        />
+      </ng-container>
+      <ng-container *ngIf="params.axis === 'Y'">
+        <label class="input_label"
+          >Distance from free edge to column face</label
+        >
+        <input
+          class="input_select"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="dy"
+        />
+      </ng-container>
+    </ng-container>
+  </app-panel>
+  <!-- Slab Element-->
+  <app-panel title="Slab Element">
+    <label class="input_label">Elemtn Types</label>
+    <select
+      class="input_select"
+      #mySlab
+      (change)="params.elementType = mySlab.value"
+    >
+      <option *ngFor="let option of elementTypeList" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+    <ng-container *ngIf="params.elementType === 'Foot'">
+      <label class="input_label">Length</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="bx"
+      />
+      <label class="input_label">Width</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="by"
+      />
+    </ng-container>
+    <ng-container
+      *ngIf="params.elementType === 'Slab' || params.elementType === 'Foot'"
+    >
+      <label class="input_label">Height</label>
+      <input
+        class="input_select"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="hf"
+      />
+      <label class="input_label"
+        >Nominal Cover
         <div class="info">
           <i class="fa fa-info-circle" aria-hidden="true"></i>
-          <span class="tooltip">Test tooltip bars 1234567890123</span>
+          <span class="tooltip"
+            >The distance between the exposed concrete surface to nearest
+            reinforcement bar</span
+          >
         </div>
       </label>
-      <select
+      <input
         class="input_select"
-        (ngModelChange)="sayHi()"
-        [(ngModel)]="params.concreteTypeList"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="cnom"
+      />
+      <label class="input_label">Diameter of reinforcing bars</label>
+      <select
+        class="dbLx_selection"
+        #mybar_x
+        (change)="params.diameterOfReinforcingBars_xAxisList = mybar_x.value"
       >
-        <option *ngFor="let option of concreteTypeList" [value]="option">
+        <option
+          class="dbLx_selection"
+          *ngFor="let option of diameterOfReinforcingBars_xAxisList"
+          [value]="option"
+        >
           {{ option }}
         </option>
       </select>
-      <ng-container *ngIf="params.concreteTypeList === 'other'">
+      <select
+        class="dbLy_selection"
+        #mybar_y
+        (change)="params.diameterOfReinforcingBars_yAxisList = mybar_y.value"
+      >
+        <option
+          class="dbLy_selection"
+          *ngFor="let option of diameterOfReinforcingBars_yAxisList"
+          [value]="option"
+        >
+          {{ option }}
+        </option>
+      </select>
+      <ng-container
+        *ngIf="params.diameterOfReinforcingBars_xAxisList === 'other'"
+      >
         <input
           class="input_select"
           type="number"
           step="any"
           min="0"
-          placeholder="fc"
+          placeholder="dbLx"
         />
       </ng-container>
-      <!-- Stell -->
-      <label class="input_label">Steel</label>
-      <select
-        class="input_select"
-        #mySteel
-        (change)="params.steelTypeList = mySteel.value"
+      <ng-container
+        *ngIf="params.diameterOfReinforcingBars_yAxisList === 'other'"
       >
-        <option *ngFor="let option of steelTypeList" [value]="option">
-          {{ option }}
-        </option>
-      </select>
-      <ng-container *ngIf="params.steelTypeList === 'other'">
         <input
           class="input_select"
           type="number"
           step="any"
           min="0"
-          placeholder="fy"
+          placeholder="dbLy"
         />
       </ng-container>
-    </div>
-  </div>
-  <!-- Support Area -->
-  <div>
-    <button class="accordion" (click)="togglePanel($event)">
-      Support Area
-    </button>
-    <div class="panel-v2">
-      <!-- SECTION TYPE -->
-      <div class="panel-content">
-        <label class="input_label">Section Type</label>
-        <select
-          class="input_select"
-          #mySection
-          (change)="params.sectionType = mySection.value"
-        >
-          <option *ngFor="let option of sectionTypeList" [value]="option">
-            {{ option }}
-          </option>
-        </select>
-        <ng-container *ngIf="params.sectionType === 'Rectangular'">
-          <label class="input_label">Section width</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="cx"
-          />
-          <label class="input_label">Section height</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="cy"
-          />
-        </ng-container>
-        <ng-container *ngIf="params.sectionType === 'Circular'">
-          <label class="input_label">Section Diameter</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="D"
-          />
-        </ng-container>
-        <!-- POSITION -->
-        <label class="input_label">Position</label>
-        <select
-          class="input_select"
-          #myPosition
-          (change)="params.position = myPosition.value"
-        >
-          <option *ngFor="let option of positionList" [value]="option">
-            {{ option }}
-          </option>
-        </select>
-        <ng-container *ngIf="params.position === 'Corner'">
-          <label class="input_label"
-            >Distance from free edge to column face (x-axis)</label
-          >
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="dx"
-          />
-          <label class="input_label"
-            >Distance from free edge to column face (y-axis)</label
-          >
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="dy"
-          />
-        </ng-container>
-        <ng-container *ngIf="params.position === 'Edge'">
-          <label class="input_label">Axis</label>
-          <select
-            class="input_select"
-            #myAxis
-            (change)="params.axis = myAxis.value"
-          >
-            <option *ngFor="let option of axisList" [value]="option">
-              {{ option }}
-            </option>
-          </select>
-          <ng-container *ngIf="params.axis === 'X'">
-            <label class="input_label">
-              Distance from free edge to column face</label
-            >
-            <input
-              class="input_select"
-              type="number"
-              step="any"
-              min="0"
-              placeholder="dx"
-            />
-          </ng-container>
-          <ng-container *ngIf="params.axis === 'Y'">
-            <label class="input_label"
-              >Distance from free edge to column face</label
-            >
-            <input
-              class="input_select"
-              type="number"
-              step="any"
-              min="0"
-              placeholder="dy"
-            />
-          </ng-container>
-        </ng-container>
-      </div>
-    </div>
-    <!-- Slab element-->
-    <button class="accordion" (click)="togglePanel($event)">
-      Slab Element
-    </button>
-    <div class="panel-v2">
-      <div class="panel-content">
-        <label class="input_label">Elemtn Types</label>
-        <select
-          class="input_select"
-          #mySlab
-          (change)="params.elementType = mySlab.value"
-        >
-          <option *ngFor="let option of elementTypeList" [value]="option">
-            {{ option }}
-          </option>
-        </select>
-        <ng-container *ngIf="params.elementType === 'Foot'">
-          <label class="input_label">Length</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="bx"
-          />
-          <label class="input_label">Width</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="by"
-          />
-        </ng-container>
-        <ng-container
-          *ngIf="params.elementType === 'Slab' || params.elementType === 'Foot'"
-        >
-          <label class="input_label">Height</label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="hf"
-          />
-          <label class="input_label"
-            >Nominal Cover
-            <div class="info">
-              <i class="fa fa-info-circle" aria-hidden="true"></i>
-              <span class="tooltip"
-                >The distance between the exposed concrete surface to nearest
-                reinforcement bar</span
-              >
-            </div>
-          </label>
-          <input
-            class="input_select"
-            type="number"
-            step="any"
-            min="0"
-            placeholder="cnom"
-          />
-          <label class="input_label">Diameter of reinforcing bars</label>
-          <select
-            class="dbLx_selection"
-            #mybar_x
-            (change)="
-              params.diameterOfReinforcingBars_xAxisList = mybar_x.value
-            "
-          >
-            <option
-              class="dbLx_selection"
-              *ngFor="let option of diameterOfReinforcingBars_xAxisList"
-              [value]="option"
-            >
-              {{ option }}
-            </option>
-          </select>
-          <select
-            class="dbLy_selection"
-            #mybar_y
-            (change)="
-              params.diameterOfReinforcingBars_yAxisList = mybar_y.value
-            "
-          >
-            <option
-              class="dbLy_selection"
-              *ngFor="let option of diameterOfReinforcingBars_yAxisList"
-              [value]="option"
-            >
-              {{ option }}
-            </option>
-          </select>
-          <ng-container
-            *ngIf="params.diameterOfReinforcingBars_xAxisList === 'other'"
-          >
-            <input
-              class="input_select"
-              type="number"
-              step="any"
-              min="0"
-              placeholder="dbLx"
-            />
-          </ng-container>
-          <ng-container
-            *ngIf="params.diameterOfReinforcingBars_yAxisList === 'other'"
-          >
-            <input
-              class="input_select"
-              type="number"
-              step="any"
-              min="0"
-              placeholder="dbLy"
-            />
-          </ng-container>
-        </ng-container>
-      </div>
-    </div>
-  </div>
+    </ng-container>
+  </app-panel>
 </div>
 
 <!-- <div>{{kosmas|async}}</div>

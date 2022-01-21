@@ -172,10 +172,6 @@
   // Apply when .panel-v2 also has the .open class
   &.open {
     padding: 0px 0px 20px 0px;
-
-    // We need the overflow to be visible when the panel is
-    // open, otherwise the tooltip is hidden
-    overflow: visible;
   }
 
   // Apply only to children with .panel-content class
