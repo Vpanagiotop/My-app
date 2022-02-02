@@ -32,7 +32,7 @@
     </label>
     <select
       class="input_select"
-      (ngModelChange)="sayHi()"
+      (ngModelChange)="onChange()"
       [(ngModel)]="params.concreteTypeList"
     >
       <option *ngFor="let option of concreteTypeList" [value]="option">
@@ -66,6 +66,8 @@
         step="any"
         min="0"
         placeholder="fy"
+        (ngModelChange)="onChange()"
+        [(ngModel)]="params.steelTypeList"
       />
     </ng-container>
   </app-panel>

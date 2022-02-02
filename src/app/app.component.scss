@@ -82,12 +82,7 @@
   content: "\2212";
   transition: 1s;
 }
-.panel {
-  width: 100%;
-  padding: 0px 0px 20px 0px;
-  margin: 0px 0px 20px 0px;
-  background-color: #f2f2f2;
-}
+
 .input_data {
   padding: 10px;
   background-color: rgba(240, 240, 240, 0.555);
@@ -162,20 +157,6 @@
   overflow: visible !important;
   opacity: 1;
 }
-.panel-v2 {
-  width: 100%;
-  margin: 0px 0px 20px 0px;
-  background-color: #f2f2f2;
-  overflow: hidden;
-  height: 0;
-
-  // Apply when .panel-v2 also has the .open class
-  &.open {
-    padding: 0px 0px 20px 0px;
-  }
-
-  // Apply only to children with .panel-content class
-  .panel-content {
-    height: auto;
-  }
+app-panel {
+  margin-bottom: 10px;
 }

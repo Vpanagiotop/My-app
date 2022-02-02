@@ -9,7 +9,6 @@ const DEFAULT_OPTION = '--- Select ---';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public panels = ['active', 'active', 'active'];
   public list: any;
   public selected: any;
   public params = {
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit {
     'Set Reinforcement Ratio',
     'Minimum Reinforcement Ratio'];
   public dx = 2;
-  public btnVal: string = '-';
   public data = new BehaviorSubject([] as any[]);
   public kosmasKatiAllo = new BehaviorSubject({} as { x: string; y: string });
   public kosmas = new BehaviorSubject(null as null | number);
@@ -44,12 +42,28 @@ export class AppComponent implements OnInit {
     this.kosmasKatiAllo.next(await response2.json());
     console.log(this.kosmasKatiAllo);
 
-    const response3 = await fetch('http://localhost:5000/kosmas');
-    this.kosmas.next(await response3.json());
-    console.log(this.kosmas);
+    // const response3 = await fetch('http://localhost:5000/messages/4/50');
+    // this.kosmas.next(await response3.json());
+    // console.log(this.kosmas);
+
   }
-  public sayHi() {
-    alert('hi');
+  public async onChange() {
+    const response4 = await this.fetch('/vasilis', {
+      oti: 'thelw',
+      x: this.params.concreteTypeList,
+      y: 6
+    });
+
+    console.log(response4);
+  }
+  private async fetch(path: string, data: any) {
+    const response = await fetch(`http://localhost:5000${path}`, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    return await response.json();
   }
 };
 
