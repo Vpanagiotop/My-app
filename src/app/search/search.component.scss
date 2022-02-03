@@ -1,0 +1,28 @@
+.title {
+  padding: 10px;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.411);
+  padding: 20px 0px 0px 20px;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.constructor {
+  padding: 10px;
+  background-color: #f0f0f08e;
+  border-radius: 4px;
+}
+.input_data {
+  width: 50%;
+  font-size: 22px;
+  font-weight: bold;
+  border-right: 1px solid rgba(54, 54, 54, 0.411);
+}
+.input_label {
+  margin: 5px;
+  display: block;
+  font-size: 17px;
+  font-weight: bold;
+}
+app-panel {
+  margin: 10px 0px 0px 0px;
+}

@@ -1,0 +1,13 @@
+<select
+  class="input"
+  [(ngModel)]="value"
+  (ngModelChange)="valueChange.emit(value)"
+>
+  <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+</select>
+<!-- <div #content class="test"><ng-container></ng-container></div> -->
+<!-- <select class="input" [(ngModel)]="params.concreteTypeList">
+  <option *ngFor="let option of concreteTypeList" [value]="option">
+    {{ option }}
+  </option>
+</select> -->

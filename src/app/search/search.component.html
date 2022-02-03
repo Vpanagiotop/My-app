@@ -1,1 +1,30 @@
-<p>search works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="title">Elastic beam column</div>
+<div class="constructor">
+  <div class="input_data">
+    <label>Input data </label>
+    <app-panel title="Materials">
+      <label class="input_label">Concrete </label>
+      <app-selection-list
+        [(value)]="params.concreteTypeList"
+        [options]="concreteTypeList"
+      ></app-selection-list>
+      <ng-container *ngIf="params.concreteTypeList === 'other'">
+        <input
+          class="input_select"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="fc"
+        />
+      </ng-container>
+
+      <label class="input_label">Steel </label>
+      <!-- <app-selection-list [(ngModel)]="params.steelTypeList">
+        <option *ngFor="let option of steelTypeList" [value]="option">
+          {{ option }}
+        </option>
+      </app-selection-list> -->
+    </app-panel>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { PanelComponent } from './panel/panel.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SelectionListComponent } from './selection-list/selection-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     PanelComponent,
     HomeComponent,
     SearchComponent,
-    NavBarComponent
+    NavBarComponent,
+    SelectionListComponent
   ],
   imports: [
     FormsModule,
