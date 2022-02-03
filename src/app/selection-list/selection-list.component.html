@@ -5,6 +5,7 @@
 >
   <option *ngFor="let option of options" [value]="option">{{ option }}</option>
 </select>
+<div class="placeholder" *ngIf="!value">{{ placeholder }}</div>
 <!-- <div #content class="test"><ng-container></ng-container></div> -->
 <!-- <select class="input" [(ngModel)]="params.concreteTypeList">
   <option *ngFor="let option of concreteTypeList" [value]="option">

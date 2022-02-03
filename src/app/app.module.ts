@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SelectionListComponent } from './selection-list/selection-list.component';
+import { ConcreteSelectComponent } from './concrete-select/concrete-select.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SelectionListComponent } from './selection-list/selection-list.componen
     HomeComponent,
     SearchComponent,
     NavBarComponent,
-    SelectionListComponent
+    SelectionListComponent,
+    ConcreteSelectComponent
   ],
   imports: [
     FormsModule,

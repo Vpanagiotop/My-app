@@ -5,10 +5,9 @@
     <label>Input data </label>
     <app-panel title="Materials">
       <label class="input_label">Concrete </label>
-      <app-selection-list
+      <app-concrete-select
         [(value)]="params.concreteTypeList"
-        [options]="concreteTypeList"
-      ></app-selection-list>
+      ></app-concrete-select>
       <ng-container *ngIf="params.concreteTypeList === 'other'">
         <input
           class="input_select"
