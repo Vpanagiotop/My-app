@@ -12,7 +12,7 @@
   border-radius: 4px;
 }
 .input_data {
-  width: 50%;
+  width: 30%;
   font-size: 22px;
   font-weight: bold;
   border-right: 1px solid rgba(54, 54, 54, 0.411);
@@ -22,6 +22,16 @@
   display: block;
   font-size: 17px;
   font-weight: bold;
+}
+.other {
+  width: 100%;
+  padding: 6px 6px;
+  margin-top: 5px;
+  display: list-item;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
 }
 app-panel {
   margin: 10px 0px 0px 0px;

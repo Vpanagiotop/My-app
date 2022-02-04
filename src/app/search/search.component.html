@@ -5,25 +5,54 @@
     <label>Input data </label>
     <app-panel title="Materials">
       <label class="input_label">Concrete </label>
-      <app-concrete-select
-        [(value)]="params.concreteTypeList"
-      ></app-concrete-select>
-      <ng-container *ngIf="params.concreteTypeList === 'other'">
+      <app-concrete-select [(value)]="params.concrete"> </app-concrete-select>
+      <ng-container *ngIf="params.concrete === 'other'">
         <input
-          class="input_select"
+          class="other"
           type="number"
           step="any"
           min="0"
           placeholder="fc"
         />
       </ng-container>
-
       <label class="input_label">Steel </label>
-      <!-- <app-selection-list [(ngModel)]="params.steelTypeList">
-        <option *ngFor="let option of steelTypeList" [value]="option">
-          {{ option }}
-        </option>
-      </app-selection-list> -->
+      <app-steel-select [(value)]="params.steel"> </app-steel-select>
+      <ng-container *ngIf="params.steel === 'other'">
+        <input
+          class="other"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="fs"
+        />
+      </ng-container>
+    </app-panel>
+    <app-panel title="Section">
+      <label class="input_label">Height </label>
+      <input class="other" type="number" step="any" min="0" placeholder="hb" />
+      <label class="input_label">Width </label>
+      <input class="other" type="number" step="any" min="0" placeholder="bw" />
+      <label class="input_label">Nominal Cover </label>
+      <input
+        class="other"
+        type="number"
+        step="any"
+        min="0"
+        placeholder="cnom"
+      />
+      <label class="input_label">Diameter of reinforcing bars </label>
+      <app-bars-diameter-select [(value)]="params.diameterOfReinforcingBars">
+      </app-bars-diameter-select>
+      <ng-container *ngIf="params.diameterOfReinforcingBars === 'other'">
+        <input
+          class="other"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="dbL"
+        />
+      </ng-container>
     </app-panel>
   </div>
 </div>
+<!-- Diameter of reinforcing bars -->

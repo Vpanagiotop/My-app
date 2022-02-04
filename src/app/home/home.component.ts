@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   } as IParamters;
   public concreteTypeList = [DEFAULT_OPTION, 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
+  public concreteTypeLists = [DEFAULT_OPTION, 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
   public steelTypeList = [DEFAULT_OPTION, 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
   public sectionTypeList = [DEFAULT_OPTION, 'Rectangular', 'Circular'];
   public positionList = [DEFAULT_OPTION, 'Inner', 'Edge', 'Corner'];
@@ -69,6 +70,7 @@ export class HomeComponent implements OnInit {
 
 interface IParamters {
   concreteTypeList: string;
+  concreteTypeLists: string;
   steelTypeList: string;
   sectionType: string;
   position: string;

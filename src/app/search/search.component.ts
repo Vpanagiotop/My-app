@@ -12,22 +12,7 @@ export class SearchComponent implements OnInit {
   public list: any;
   public selected: any;
   public params = {
-    // concreteTypeList: ''
   } as IParamters;
-  public concreteTypeList = [DEFAULT_OPTION, 'C16/20', 'C20/25', 'C25/30', 'C30/37', 'C35/40', 'other'];
-  public steelTypeList = [DEFAULT_OPTION, 'B500c', 'B500a', 'B500b', 'S220', 'S400', 'S500', 'S400s', 'S500s', 'other'];
-  public sectionTypeList = [DEFAULT_OPTION, 'Rectangular', 'Circular'];
-  public positionList = [DEFAULT_OPTION, 'Inner', 'Edge', 'Corner'];
-  public axisList = [DEFAULT_OPTION, 'X', 'Y'];
-  public elementTypeList = [DEFAULT_OPTION, 'Slab', 'Foot'];
-  public diameterOfReinforcingBars_xAxisList = ['-- dbLx ---',
-    'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other']
-  public diameterOfReinforcingBars_yAxisList = ['-- dbLy --',
-    'Ø8', 'Ø10', 'Ø12', 'Ø14', 'Ø16', 'Ø18', 'Ø20', 'other'];
-  public reinforcementRatioTypeList = [DEFAULT_OPTION,
-    'Count Reinforcement Ratio',
-    'Set Reinforcement Ratio',
-    'Minimum Reinforcement Ratio'];
   public dx = 2;
   public data = new BehaviorSubject([] as any[]);
   public kosmasKatiAllo = new BehaviorSubject({} as { x: string; y: string });
@@ -42,15 +27,11 @@ export class SearchComponent implements OnInit {
     this.kosmasKatiAllo.next(await response2.json());
     console.log(this.kosmasKatiAllo);
 
-    // const response3 = await fetch('http://localhost:5000/messages/4/50');
-    // this.kosmas.next(await response3.json());
-    // console.log(this.kosmas);
-
   }
   public async onChange() {
     const response4 = await this.fetch('/vasilis', {
       oti: 'thelw',
-      x: this.params.concreteTypeList,
+      x: this.params.concrete,
       y: 6
     });
 
@@ -68,13 +49,7 @@ export class SearchComponent implements OnInit {
 }
 
 interface IParamters {
-  concreteTypeList: string;
-  steelTypeList: string;
-  sectionType: string;
-  position: string;
-  axis: string;
-  elementType: string;
-  diameterOfReinforcingBars_xAxisList: string;
-  diameterOfReinforcingBars_yAxisList: string;
+  concrete: string;
+  steel: string;
+  diameterOfReinforcingBars: string;
 }
-
