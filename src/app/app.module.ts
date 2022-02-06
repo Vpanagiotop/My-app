@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PanelComponent } from './panel/panel.component';
 import { SearchComponent } from './search/search.component';
 import { SelectionListComponent } from './selection-list/selection-list.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 import { SteelSelectComponent } from './steel-select/steel-select.component';
 
 
@@ -23,7 +24,8 @@ import { SteelSelectComponent } from './steel-select/steel-select.component';
     SelectionListComponent,
     ConcreteSelectComponent,
     SteelSelectComponent,
-    BarsDiameterComponent
+    BarsDiameterComponent,
+    SideBarComponent
   ],
   imports: [
     FormsModule,

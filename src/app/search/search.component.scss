@@ -1,21 +1,38 @@
+.test {
+  display: flex;
+  width: 100%;
+}
+.main {
+  position: inherit;
+  width: 100%;
+}
 .title {
   padding: 10px;
   border-bottom: 1px solid rgba(54, 54, 54, 0.411);
   padding: 20px 0px 0px 20px;
-  margin-top: 10px;
+  margin: 10px 0px;
   font-size: 25px;
   font-weight: bold;
+  margin: 100px;
 }
 .constructor {
   padding: 10px;
   background-color: #f0f0f08e;
   border-radius: 4px;
+  display: flex;
 }
 .input_data {
-  width: 30%;
+  width: 40%;
+  padding-left: 10px;
   font-size: 22px;
   font-weight: bold;
   border-right: 1px solid rgba(54, 54, 54, 0.411);
+}
+.outputs {
+  width: 60%;
+  padding-left: 20px;
+  font-size: 22px;
+  font-weight: bold;
 }
 .input_label {
   margin: 5px;

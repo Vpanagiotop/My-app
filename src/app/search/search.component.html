@@ -1,58 +1,114 @@
 <app-nav-bar></app-nav-bar>
-<div class="title">Elastic beam column</div>
-<div class="constructor">
-  <div class="input_data">
-    <label>Input data </label>
-    <app-panel title="Materials">
-      <label class="input_label">Concrete </label>
-      <app-concrete-select [(value)]="params.concrete"> </app-concrete-select>
-      <ng-container *ngIf="params.concrete === 'other'">
+<div class="test">
+  <app-side-bar></app-side-bar>
+  <div class="main">
+    <div class="title">Elastic beam column</div>
+    <div class="constructor">
+      <div class="input_data">
+        <label>Input data </label>
+        <app-panel title="Materials">
+          <label class="input_label">Concrete </label>
+          <app-concrete-select [(value)]="params.concrete">
+          </app-concrete-select>
+          <ng-container *ngIf="params.concrete === 'other'">
+            <input
+              class="other"
+              type="number"
+              step="any"
+              min="0"
+              placeholder="fc"
+            />
+          </ng-container>
+          <label class="input_label">Steel </label>
+          <app-steel-select [(value)]="params.steel"> </app-steel-select>
+          <ng-container *ngIf="params.steel === 'other'">
+            <input
+              class="other"
+              type="number"
+              step="any"
+              min="0"
+              placeholder="fs"
+            />
+          </ng-container>
+        </app-panel>
+        <app-panel title="Section">
+          <label class="input_label">Height </label>
+          <input
+            class="other"
+            type="number"
+            step="any"
+            min="0"
+            placeholder="hb"
+          />
+          <label class="input_label">Width </label>
+          <input
+            class="other"
+            type="number"
+            step="any"
+            min="0"
+            placeholder="bw"
+          />
+          <label class="input_label">Nominal Cover </label>
+          <input
+            class="other"
+            type="number"
+            step="any"
+            min="0"
+            placeholder="cnom"
+          />
+          <label class="input_label">Diameter of reinforcing bars </label>
+          <app-bars-diameter-select
+            [(value)]="params.diameterOfReinforcingBars"
+          >
+          </app-bars-diameter-select>
+          <ng-container *ngIf="params.diameterOfReinforcingBars === 'other'">
+            <input
+              class="other"
+              type="number"
+              step="any"
+              min="0"
+              placeholder="dbL"
+            />
+          </ng-container>
+        </app-panel>
+        <app-panel title="Forces">
+          <label class="input_label">Bending Moment </label>
+          <input
+            class="other"
+            type="number"
+            step="any"
+            min="0"
+            placeholder="Msd"
+          />
+          <label class="input_label">Normal Force </label>
+          <input
+            class="other"
+            type="number"
+            step="any"
+            min="0"
+            placeholder="Nd"
+          />
+        </app-panel>
+      </div>
+      <div class="outputs">
+        <label>Analysis outputs </label>
+        <label class="input_label">Bending Moment </label>
         <input
           class="other"
           type="number"
           step="any"
           min="0"
-          placeholder="fc"
+          placeholder="Msd"
         />
-      </ng-container>
-      <label class="input_label">Steel </label>
-      <app-steel-select [(value)]="params.steel"> </app-steel-select>
-      <ng-container *ngIf="params.steel === 'other'">
+        <label class="input_label">Normal Force </label>
         <input
           class="other"
           type="number"
           step="any"
           min="0"
-          placeholder="fs"
+          placeholder="Nd"
         />
-      </ng-container>
-    </app-panel>
-    <app-panel title="Section">
-      <label class="input_label">Height </label>
-      <input class="other" type="number" step="any" min="0" placeholder="hb" />
-      <label class="input_label">Width </label>
-      <input class="other" type="number" step="any" min="0" placeholder="bw" />
-      <label class="input_label">Nominal Cover </label>
-      <input
-        class="other"
-        type="number"
-        step="any"
-        min="0"
-        placeholder="cnom"
-      />
-      <label class="input_label">Diameter of reinforcing bars </label>
-      <app-bars-diameter-select [(value)]="params.diameterOfReinforcingBars">
-      </app-bars-diameter-select>
-      <ng-container *ngIf="params.diameterOfReinforcingBars === 'other'">
-        <input
-          class="other"
-          type="number"
-          step="any"
-          min="0"
-          placeholder="dbL"
-        />
-      </ng-container>
-    </app-panel>
+      </div>
+    </div>
   </div>
 </div>
-<!-- Diameter of reinforcing bars -->
