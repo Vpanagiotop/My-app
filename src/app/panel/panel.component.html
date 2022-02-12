@@ -1,9 +1,10 @@
-<div
-  #header
-  class="panel-header"
-  [class.open]="state === 'open'"
-  (click)="toggle()"
->
-  {{ title }}
+<div class="panel">
+  <div class="title">{{ title }}</div>
+  <div
+    #header
+    class="panel-header"
+    [class.open]="state === 'open'"
+    (click)="toggle()"
+  ></div>
+  <div #content class="panel-content"><ng-content></ng-content></div>
 </div>
-<div #content class="panel-content"><ng-content></ng-content></div>

@@ -1,19 +1,20 @@
-<div class="logo">
-  <input class="search" placeholder=" Search..." />
-</div>
-<label class="contents">Reinforced Concrete </label>
-<div class="nav-bar">
-  <app-panel title="Section Analysis" class="panel">
-    <div class="input_label">
-      <label>Flexural design of RC beam </label>
+<div>
+  <div class="search">
+    <div [routerLink]="'/home'" class="contents">
+      <i class="material-icons">library_books</i>
+      Contents
     </div>
-    <div class="input_label">
-      <label>Moment Curvature Analysis </label>
-    </div>
-  </app-panel>
-  <app-panel title="Section Analysis" class="panel">
-    <div class="input_label">
-      <label>Concrete </label>
-    </div>
-  </app-panel>
+    <input class="search-input" placeholder="Search..." />
+  </div>
+  <div class="title">{{ title }}</div>
+  <!-- <app-panel [state]="'closed'" title="Section Design" class="panel">
+    <label class="panel-label">Flexural design of RC Column </label>
+    <label class="panel-label" [routerLink]="'/search'"
+      >Confining Reinforcement</label
+    >
+  </app-panel> -->
+  <!-- <app-panel class="panel" [state]="'closed'" title="{{ title }}">
+    
+  </app-panel> -->
+  <div><ng-content></ng-content></div>
 </div>

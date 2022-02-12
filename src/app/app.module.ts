@@ -9,9 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PanelComponent } from './panel/panel.component';
 import { SearchComponent } from './search/search.component';
+import { SectionDesignComponent } from './section-design/section-design.component';
 import { SelectionListComponent } from './selection-list/selection-list.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SteelSelectComponent } from './steel-select/steel-select.component';
+import { SectionBeamComponent } from './section-beam/section-beam.component';
+import { SideBarRCComponent } from './side-bar-rc/side-bar-rc.component';
+import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component';
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { SteelSelectComponent } from './steel-select/steel-select.component';
     ConcreteSelectComponent,
     SteelSelectComponent,
     BarsDiameterComponent,
-    SideBarComponent
+    SideBarComponent,
+    SectionDesignComponent,
+    SectionBeamComponent,
+    SideBarRCComponent,
+    SideBarPanelComponent
   ],
   imports: [
     FormsModule,

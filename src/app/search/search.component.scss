@@ -6,18 +6,21 @@
   position: inherit;
   width: 100%;
 }
-.title {
-  padding: 10px;
-  border-bottom: 1px solid rgba(54, 54, 54, 0.411);
-  padding: 20px 0px 0px 20px;
-  margin: 10px 0px;
-  font-size: 25px;
-  font-weight: bold;
-  margin: 100px;
+label {
+  cursor: pointer;
 }
+// .title {
+//   padding: 10px;
+//   border-bottom: 1px solid rgba(54, 54, 54, 0.411);
+//   padding: 20px 0px 0px 20px;
+//   margin: 10px 0px;
+//   font-size: 25px;
+//   font-weight: bold;
+//   margin: 100px;
+// }
 .constructor {
   padding: 10px;
-  background-color: #f0f0f08e;
+  background-color: #eeeef1;
   border-radius: 4px;
   display: flex;
 }

@@ -9,7 +9,7 @@ export class PanelComponent implements AfterViewInit, OnDestroy {
   @ViewChild('header') public header!: ElementRef<HTMLDivElement>;
   @ViewChild('content') public content!: ElementRef<HTMLDivElement>;
   @Input() public title!: string;
-  public state: 'open' | 'closed' = 'open';
+  @Input() public state: 'open' | 'closed' = 'open';
   private resizeObserver?: ResizeObserver;
   public constructor(private element: ElementRef<HTMLElement>) { }
   public ngAfterViewInit() {

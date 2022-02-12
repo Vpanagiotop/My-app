@@ -1,0 +1,14 @@
+<app-panel title="Section">
+  <label class="input_label">Height </label>
+  <input class="other" type="number" step="any" min="0" placeholder="hb" />
+  <label class="input_label">Width </label>
+  <input class="other" type="number" step="any" min="0" placeholder="bw" />
+  <label class="input_label">Nominal Cover </label>
+  <input class="other" type="number" step="any" min="0" placeholder="cnom" />
+  <label class="input_label">Diameter of reinforcing bars </label>
+  <app-bars-diameter-select [(value)]="params.diameterOfReinforcingBars">
+  </app-bars-diameter-select>
+  <ng-container *ngIf="params.diameterOfReinforcingBars === 'other'">
+    <input class="other" type="number" step="any" min="0" placeholder="dbL" />
+  </ng-container>
+</app-panel>
