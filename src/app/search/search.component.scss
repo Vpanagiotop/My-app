@@ -8,6 +8,10 @@
 }
 label {
   cursor: pointer;
+
+  &.active {
+    font-weight: bold;
+  }
 }
 // .title {
 //   padding: 10px;
