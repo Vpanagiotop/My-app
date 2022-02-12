@@ -13,6 +13,7 @@ export class PanelComponent implements AfterViewInit, OnDestroy {
   @Input() public iconCollapsed = 'expand_more';
   @Input() public iconExpanded = 'expand_less';
   @Input() public fontSize = '18px';
+  @Input() public titleLink?: string;
   private resizeObserver?: ResizeObserver;
   public constructor(private element: ElementRef<HTMLElement>) { }
   public ngAfterViewInit() {

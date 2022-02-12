@@ -4,7 +4,7 @@
   [class.open]="state === 'open'"
   [style.fontSize]="fontSize"
 >
-  <div class="title">{{ title }}</div>
+  <div class="title" [routerLink]="titleLink">{{ title }}</div>
   <i (click)="toggle()" class="material-icons toggle-icon">{{
     state === "open" ? iconExpanded : iconCollapsed
   }}</i>
