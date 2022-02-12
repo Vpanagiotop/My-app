@@ -1,11 +1,15 @@
-<div>
-  <app-panel [state]="'closed'" title="Section Design" class="panel">
-    <label class="panel-label">Flexural design of RC Column </label>
-    <label class="panel-label" [routerLink]="'/search'"
-      >Confining Reinforcement</label
-    >
-  </app-panel>
-</div>
+<app-panel
+  [state]="'closed'"
+  title="Section Design"
+  class="panel"
+  fontSize="15px"
+  iconCollapsed="apps"
+>
+  <label class="panel-label">Flexural design of RC Column </label>
+  <label class="panel-label" [routerLink]="'/search'"
+    >Confining Reinforcement</label
+  >
+</app-panel>
 <!-- <div>
   <app-panel class="panel" [state]="'open'" title="Test"> </app-panel>
   <div class="panel-content"><ng-content></ng-content></div>

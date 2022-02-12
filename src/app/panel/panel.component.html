@@ -1,10 +1,13 @@
-<div class="panel">
+<div
+  #header
+  class="panel-header"
+  [class.open]="state === 'open'"
+  [style.fontSize]="fontSize"
+  (click)="toggle()"
+>
   <div class="title">{{ title }}</div>
-  <div
-    #header
-    class="panel-header"
-    [class.open]="state === 'open'"
-    (click)="toggle()"
-  ></div>
-  <div #content class="panel-content"><ng-content></ng-content></div>
+  <i class="material-icons toggle-icon">{{
+    state === "open" ? iconExpanded : iconCollapsed
+  }}</i>
 </div>
+<div #content class="panel-content"><ng-content></ng-content></div>

@@ -1,11 +1,5 @@
-.panel.panel::ng-deep .panel-header {
-  &:after {
-    content: "\2630";
-    transition: 1s;
-  }
-  &:hover {
-    color: rgb(206, 198, 198);
-  }
+:host {
+  display: block;
 }
 .panel.panel::ng-deep .panel-content {
   padding: 10px 10px 0px 10px;
