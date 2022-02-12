@@ -3,10 +3,9 @@
   class="panel-header"
   [class.open]="state === 'open'"
   [style.fontSize]="fontSize"
-  (click)="toggle()"
 >
   <div class="title">{{ title }}</div>
-  <i class="material-icons toggle-icon">{{
+  <i (click)="toggle()" class="material-icons toggle-icon">{{
     state === "open" ? iconExpanded : iconCollapsed
   }}</i>
 </div>
