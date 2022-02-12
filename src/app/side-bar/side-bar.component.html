@@ -1,12 +1,10 @@
-<div>
-  <div class="search">
-    <div [routerLink]="'/home'" class="contents">
-      <i class="material-icons">library_books</i>
-      Contents
-    </div>
-    <input class="search-input" placeholder="Search..." />
+<div class="search">
+  <div [routerLink]="'/home'" class="contents">
+    <i class="material-icons">library_books</i>
+    Contents
   </div>
-  <div class="title">{{ title }}</div>
-
-  <div><ng-content></ng-content></div>
+  <input class="search-input" placeholder="Search..." />
 </div>
+<div class="title">{{ title }}</div>
+
+<div><ng-content></ng-content></div>

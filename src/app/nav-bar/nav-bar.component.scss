@@ -29,6 +29,7 @@
   float: left;
 }
 .dropdown .dropbtn {
+  cursor: pointer;
   font-size: 16px;
   border: none;
   outline: none;
@@ -36,8 +37,6 @@
   padding: 14px 16px;
   background-color: inherit;
   margin: 0;
-  position: relative;
-  overflow: visible;
 }
 .dropdown-content {
   display: none;
