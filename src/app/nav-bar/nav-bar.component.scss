@@ -1,17 +1,26 @@
-.navbar {
-  overflow: hidden;
+:host {
   background-color: #333333;
   width: 100%;
   text-align: center;
-}
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  border-radius: 4px;
+  position: relative;
+  display: block;
+  overflow: visible;
+  height: 47px;
+
+  a {
+    float: left;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  a:hover,
+  .dropdown:hover .dropbtn {
+    color: rgb(206, 198, 198);
+  }
 }
 .topnav-right {
   float: right;
@@ -29,10 +38,6 @@
   margin: 0;
   position: relative;
   overflow: visible;
-}
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-  color: rgb(206, 198, 198);
 }
 .dropdown-content {
   display: none;
