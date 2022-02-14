@@ -1,0 +1,8 @@
+<div class="navigation">
+  <label *ngFor="let item of breadcrumb" [routerLink]="item.link">
+    <div class="route-link">{{ item.title }}</div>
+    <label class="slash">/</label>
+  </label>
+  <label class="current-link">{{ title }}</label>
+</div>
+<!-- <div class="title">{{ title }}</div> -->

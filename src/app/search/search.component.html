@@ -1,18 +1,11 @@
 <div class="test">
-  <app-side-bar title="Reinforced Concrete">
-    <app-side-bar-panel>
-      <label class="panel-label">Flexural design of RC Column </label>
-      <label
-        class="panel-label"
-        [routerLink]="'/home'"
-        [routerLinkActive]="'active'"
-        >Confining Reinforcement</label
-      >
-    </app-side-bar-panel>
-    <!-- <label>Flexural design of RC malakas</label> -->
-  </app-side-bar>
+  <app-side-bar
+    title="Reinforced Concrete"
+    [panels]="sidebarPanels"
+  ></app-side-bar>
   <div class="main">
-    <div class="title">Elastic beam column</div>
+    <router-outlet></router-outlet>
+    <!-- <div class="title">Elastic beam column</div>
     <div class="constructor">
       <div class="input_data">
         <label>Input data </label>
@@ -121,5 +114,6 @@
         />
       </div>
     </div>
+  </div> -->
   </div>
 </div>

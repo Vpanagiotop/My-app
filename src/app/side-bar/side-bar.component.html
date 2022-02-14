@@ -7,4 +7,20 @@
 </div>
 <div class="title">{{ title }}</div>
 
-<div><ng-content></ng-content></div>
+<div>
+  <app-panel
+    *ngFor="let panel of panels"
+    [title]="panel.title"
+    [titleLink]="panel.titleLink"
+    fontSize="17px"
+    [state]="'closed'"
+  >
+    <div
+      class="panel-item"
+      *ngFor="let item of panel.items"
+      [routerLink]="item.link"
+    >
+      {{ item.text }}
+    </div>
+  </app-panel>
+</div>

@@ -1,0 +1,20 @@
+<div [style.padding-left]="padding">
+  <app-route-link [title]="title" [breadcrumb]="breadcrumb"> </app-route-link>
+  <div class="collection">
+    <div class="headline">
+      <div class="photo">
+        <img src="{{ image }}" width="100%" />
+      </div>
+      <div class="description">
+        <div class="title">{{ title }}</div>
+        <div class="info">
+          <i class="fas fa-layer-group"></i> {{ items.length }} items
+        </div>
+      </div>
+    </div>
+    <div class="items" *ngFor="let item of items" [routerLink]="item.link">
+      <div class="title">{{ item.title }}</div>
+      <div class="info"><i class="fas fa-layer-group"></i> 12 items</div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,10 @@ import { SteelSelectComponent } from './steel-select/steel-select.component';
 import { SectionBeamComponent } from './section-beam/section-beam.component';
 import { SideBarRCComponent } from './side-bar-rc/side-bar-rc.component';
 import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component';
+import { StructuralComponent } from './structural/structural.component';
+import { RouteLinkComponent } from './route-link/route-link.component';
+import { ContainerPageComponent } from './container-page/container-page.component';
+import { ReinforcedConcreteComponent } from './reinforced-concrete/reinforced-concrete.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { SideBarPanelComponent } from './side-bar-panel/side-bar-panel.component
     SectionDesignComponent,
     SectionBeamComponent,
     SideBarRCComponent,
-    SideBarPanelComponent
+    SideBarPanelComponent,
+    StructuralComponent,
+    RouteLinkComponent,
+    ContainerPageComponent,
+    ReinforcedConcreteComponent
   ],
   imports: [
     FormsModule,

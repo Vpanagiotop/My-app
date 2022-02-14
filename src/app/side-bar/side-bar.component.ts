@@ -7,4 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class SideBarComponent {
   @Input() public title!: string;
+  @Input() public panels!: Array<{
+    title: string;
+    titleLink: string;
+    items: Array<{
+      text: string;
+      link: string;
+    }>
+  }>
 }
