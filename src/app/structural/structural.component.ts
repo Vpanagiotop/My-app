@@ -11,4 +11,5 @@ export class StructuralComponent {
   @Input() public breadcrumb = [
     { title: 'Applications', link: '/home' }]
   public items = structuralItems;
+
 }

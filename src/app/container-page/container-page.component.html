@@ -14,7 +14,9 @@
     </div>
     <div class="items" *ngFor="let item of items" [routerLink]="item.link">
       <div class="title">{{ item.title }}</div>
-      <div class="info"><i class="fas fa-layer-group"></i> 12 items</div>
+      <div class="info">
+        <i class="fas fa-layer-group"></i> {{ item.contents.length }} items
+      </div>
     </div>
   </div>
 </div>

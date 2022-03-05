@@ -16,5 +16,9 @@ export class ContainerPageComponent {
   @Input() public items!: Array<{
     title: string;
     link: string;
+    contents: Array<{
+      title: string;
+      link: string;
+    }>
   }>
 }

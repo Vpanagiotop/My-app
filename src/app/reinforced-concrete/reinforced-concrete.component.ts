@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { reinforcedConcreteItems } from 'src/common/reinforcedConcreteItems';
 @Component({
   selector: 'app-reinforced-concrete',
   templateUrl: './reinforced-concrete.component.html',
@@ -12,11 +12,7 @@ export class ReinforcedConcreteComponent {
     { title: 'Applications', link: '/home' },
     { title: 'Structural', link: '/structural' }
   ]
-  public items = [
-    { title: 'Cross Section Design', link: '/structural/reinforced-concrete' },
-    { title: 'Steel', link: '/home' },
-    { title: 'Actions', link: '/home' }
-  ]
+  public items = reinforcedConcreteItems
   public sidebarPanels = [
     {
       title: 'Flexural design of RC Column',

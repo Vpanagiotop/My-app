@@ -1,7 +1,7 @@
 :host {
   display: block;
   background-color: #f3f5f7;
-  height: 5000px;
+  height: 1000px;
   padding-left: 30px;
   padding-right: 250px;
 }
@@ -52,9 +52,9 @@
     font-weight: bold;
     padding: 10px 0px;
     color: #3a789e;
-  }
-  .table {
-    background-color: white;
+    // &:hover {
+    //   text-decoration: underline;
+    // }
   }
   .info {
     position: absolute;
